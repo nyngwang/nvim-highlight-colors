@@ -17,8 +17,10 @@ function M.get_last_row_index()
 end
 
 function M.get_visible_rows_by_buffer_id(buffer_id)
+	local buf_win_id = vim.fn.bufwinid(buffer_id) ~= -1 and vim.fn.bufwinid(buffer_id) or 0
+
 	return vim.api.nvim_win_call(
-		vim.fn.bufwinid(buffer_id),
+		buf_win_id,
 		function()
 			return {
 				vim.fn.line('w0'),
