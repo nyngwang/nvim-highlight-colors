@@ -56,7 +56,7 @@ function M.create_highlight(activeBufferId, ns_id, row, start_column, end_column
 
 	if render_option == M.render_options.virtual then
 		vim.api.nvim_buf_set_extmark(
-			activeBufferId,
+			activeBufferId or 0,
 			ns_id,
 			row + 1,
 			start_column - 1,
@@ -67,7 +67,7 @@ function M.create_highlight(activeBufferId, ns_id, row, start_column, end_column
 		return
 	end
 	vim.api.nvim_buf_add_highlight(
-		activeBufferId,
+		activeBufferId or 0,
 		ns_id,
 		highlight_group,
 		row + 1,

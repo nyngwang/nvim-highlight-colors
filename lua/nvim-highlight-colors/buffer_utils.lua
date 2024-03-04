@@ -5,7 +5,7 @@ local M = {}
 M.color_usage_regex = "[:=]+%s*[\"']?"
 
 function M.get_buffer_contents(min_row, max_row, active_buffer_id)
-	return vim.api.nvim_buf_get_lines(active_buffer_id, min_row, max_row, false)
+	return vim.api.nvim_buf_get_lines(active_buffer_id or 0, min_row, max_row, false)
 end
 
 function M.get_positions_by_regex(patterns, min_row, max_row, active_buffer_id, row_offset)
