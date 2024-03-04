@@ -79,7 +79,7 @@ function M.highlight_colors(min_row, max_row, active_buffer_id)
 end
 
 function M.turn_on(active_buffer_id)
-	local buffer_id = active_buffer_id ~= nil and active_buffer_id or 0
+	local buffer_id = active_buffer_id or 0
 
 	M.clear_highlights(buffer_id)
 	local visible_rows = utils.get_visible_rows_by_buffer_id(buffer_id)
